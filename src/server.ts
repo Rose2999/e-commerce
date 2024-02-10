@@ -1,4 +1,4 @@
-import express,{Express,Request,Response} from 'express';
+import express,{Express,NextFunction,Request,Response} from 'express';
 import sequelize from "./config/sequelize-config";
 import EcSuppliers from './models/ec_suppliers';
 import indexRoutes from './routes/index'
@@ -18,8 +18,13 @@ sequelize.sync({force:false})
     console.log("error in syncing database",error);
    })
    app.use(express.json());
+   
+//    app.use((req,res,next)=>midddleware(req,res,next));
+   
    app.use(indexRoutes);
    app.use('/api/v1',supplierRoutes);
+   
+   
 //    app.use('/api/v2',customerRoutes);
    
     

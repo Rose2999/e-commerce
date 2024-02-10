@@ -4,6 +4,7 @@ import express,{Router,Request,Response} from 'express';
 import login from '../controllers/authentication/login'
 import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt';
+import midddlewareverify from '../middleware/verifyjwt';
 import register from '../controllers/authentication/register';
 
 const app=express();
